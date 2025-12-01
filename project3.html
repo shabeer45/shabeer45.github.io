@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alzheimers Awareness Platform</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        text-align: center;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px 0;
+    }
+
+   .glass-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        color: #222;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        transition: 0.3s;
+        margin-bottom: 15px;
+    }
+
+    .glass-btn:hover {
+        background: rgba(255, 255, 255, 0.55);
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #3b2370;
+    }
+
+    .view-btn {
+        display: inline-block;
+        background: #4CAF50;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .image-grid img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .image-grid img:hover {
+        transform: scale(1.03);
+    }
+
+    p {
+        margin-top: 25px;
+        font-size: 18px;
+    }
+
+    /* Lightbox */
+    #lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        flex-direction: column;
+    }
+
+    #lightbox img {
+        width: 80%;
+        max-width: 900px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #000;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        user-select: none;
+    }
+
+    .prev-btn { left: 40px; }
+    .next-btn { right: 40px; }
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <a href="index.html#projects" class="glass-btn">⬅ Back</a>
+
+    <h1>Alzheimers Awareness Platform</h1>
+
+    <a href="http://127.0.0.1:5501/" target="_blank" class="view-btn">
+        View My Project
+    </a>
+
+    <div class="image-grid">
+        <img src="assets/pic4.png" onclick="openLightbox(0)">
+        <img src="assets/pic5.png" onclick="openLightbox(1)">
+        <img src="assets/pic6.png" onclick="openLightbox(2)">
+        <img src="assets/pic7.png" onclick="openLightbox(3)">
+        <img src="assets/pic8.png" onclick="openLightbox(4)">
+        <img src="assets/pic9.png" onclick="openLightbox(5)">
+    </div>
+
+    <p>Website for Alzheimers education and symptom tracking.</p>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">×</span>
+    <span class="nav-btn prev-btn" onclick="changeImage(-1)">⟨</span>
+    <img id="lightbox-img">
+    <span class="nav-btn next-btn" onclick="changeImage(1)">⟩</span>
+</div>
+
+<script>
+    const images = [
+        "assets/pic4.png",
+        "assets/pic5.png",
+        "assets/pic6.png",
+        "assets/pic7.png",
+        "assets/pic8.png",
+        "assets/pic9.png"
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        document.getElementById("lightbox-img").src = images[index];
+        document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+
+        document.getElementById("lightbox-img").src = images[currentIndex];
+    }
+</script>
+
+</body>
+</html>
