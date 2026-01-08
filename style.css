@@ -1,3 +1,4 @@
+
 /* ============ Global ============ */
 * {
   box-sizing: border-box;
@@ -326,37 +327,45 @@ textarea {
   }
 }
 
-/* ============ MOBILE HEADER FIX (FINAL) ============ */
+/* ============ MOBILE HEADER OVERLAP FIX ============ */
 @media (max-width: 768px) {
 
+  /* Header height fix */
+  .site-header {
+    padding-bottom: 6px;
+  }
+
+  /* Push hero down properly */
+  .hero {
+    padding-top: 170px; /* ✅ prevents overlap */
+  }
+
+  /* Center header layout */
   .header-inner {
     flex-direction: column;
-    align-items: center;
-    padding: 12px 0;
     gap: 8px;
+    padding: 12px 0;
   }
 
-  .brand {
-    font-size: 22px;
-    text-align: center;
-  }
-
+  /* Mobile nav cleanup */
   nav {
     width: 100%;
-    overflow-x: auto;   /* ✅ allows horizontal scroll */
+    overflow-x: auto;
   }
 
   nav ul {
-    flex-wrap: nowrap;  /* ❌ no wrapping */
-    justify-content: flex-start;
+    flex-wrap: nowrap;
     gap: 16px;
     padding: 6px 8px;
+    justify-content: flex-start;
     min-width: max-content;
   }
 
   nav a {
     font-size: 14px;
-    white-space: nowrap; /* ✅ keeps text in one line */
-    padding: 6px 10px;
+    white-space: nowrap;
   }
 }
+
+
+
