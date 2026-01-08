@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">Shabeer<span class="dot">.</span></div>
-
-      <!-- structured nav (works with JS) -->
       <nav class="nav">
         <ul>
           <li><a href="#about">About</a></li>
@@ -26,11 +26,10 @@
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- ABOUT -->
     <section id="about" class="hero">
       <div class="container hero-grid">
         <div class="hero-media">
-          <!-- Put your photo in the project folder and name it profile.jpg -->
           <img src="portfolio.jpg.png" alt="Shabeer Ali K A" class="profile-photo">
         </div>
 
@@ -38,16 +37,15 @@
           <h1 class="hero-title">Hi, I'm <span>Shabeer Ali K A</span></h1>
           <p class="hero-sub">BCA Graduate • Data Analyst</p>
 
-          <p class="hero-lead">I turn raw data into clear insights. I build Power BI dashboards and write reproducible Python analyses using Pandas, Matplotlib and Seaborn.</p>
-
-          <div class="typing-row">
-            <span id="typing" aria-hidden="true"></span>
-          </div>
+          <p class="hero-lead">
+            I turn raw data into clear insights. I build Power BI dashboards and write
+            reproducible Python analyses using Pandas, Matplotlib and Seaborn.
+          </p>
 
           <div class="hero-cta">
             <a class="btn primary" href="#projects">View Projects</a>
             <a class="btn outline" href="#contact">Contact Me</a>
-            <a class="chip" href="assets/Shabeer_Ali_CV .pdf" download>Download CV</a>
+            <a class="chip" href="assets\ShabeerAli_CVS.pdf" download>Download CV</a>
           </div>
 
           <div class="quick-info">
@@ -78,80 +76,144 @@
         <p class="muted">A few examples of my work — click a card for details.</p>
 
         <div class="projects-grid" id="projectsGrid">
-          <!-- Cards (use assets/ images if available) -->
-         <article class="project-card" data-id="1">
-  <div class="project-thumb" style="background-image:url('assets/pic1.png')"></div>
-  <div class="project-body">
-    <h3>Amazon Sales Analysis</h3>
-    <p>Power BI dashboard that analyzes revenue, orders and product performance.</p>
-  </div>
-</article>
 
-<article class="project-card" data-id="2">
-  <div class="project-thumb" style="background-image:url('assets/pic2.png')"></div>
-  <div class="project-body">
-    <h3>BMW Sales Analysis</h3>
-    <p>Python + Google Colab analysis using Pandas, Matplotlib & Seaborn.</p>
-  </div>
-</article>
+          <!-- Project 1 -->
+          <article class="project-card" data-id="1">
+            <div class="project-thumb" style="background-image:url('assets/pic1.png')"></div>
+            <div class="project-body">
+              <h3>Amazon Sales Analysis</h3>
+              <p>Power BI dashboard analyzing revenue, orders and product performance.</p>
+            </div>
+          </article>
 
-<article class="project-card" data-id="3">
-  <div class="project-thumb" style="background-image:url('assets/pic3.png')"></div>
-  <div class="project-body">
-    <h3>Alzheimers Awareness Platform</h3>
-    <p>Website + Android app for awareness & early detection.</p>
-  </div>
-</article>
+          <!-- Project 2 -->
+          <article class="project-card" data-id="2">
+            <div class="project-thumb" style="background-image:url('assets/pic2.png')"></div>
+            <div class="project-body">
+              <h3>BMW Sales Analysis</h3>
+              <p>Python analysis using Pandas, Matplotlib and Seaborn.</p>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-id="3">
+            <div class="project-thumb" style="background-image:url('assets/pic3.png')"></div>
+            <div class="project-body">
+              <h3>Alzheimer’s Awareness Platform</h3>
+              <p>Website and Android app for awareness and early detection.</p>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" data-id="4">
+            <div class="project-thumb" style="background-image:url('assets/ecf11.png')"></div>
+            <div class="project-body">
+              <h3>ECF Performance Analysis</h3>
+              <p>Executive-level Power BI dashboard analyzing department, client and project KPIs.</p>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card" data-id="5">
+            <div class="project-thumb" style="background-image:url('assets/ar34.png')"></div>
+            <div class="project-body">
+              <h3>Accounts Receivable (AR) Analysis</h3>
+              <p>Power BI dashboard tracking invoicing, collections, ageing and cash flow risk.</p>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card" data-id="6">
+            <div class="project-thumb" style="background-image:url('assets/b56.png')"></div>
+            <div class="project-body">
+              <h3>Bank Marketing Data Analysis</h3>
+              <p>Python analysis to study customer behavior and term deposit subscription trends.</p>
+            </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section reveal">
-      <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-        <p class="muted">Want to collaborate or hire me? Send a message — I'll reply within 48 hours.</p>
-        <form id="contactForm" class="contact-form" novalidate>
-          <div class="form-row">
-            <input name="name" placeholder="Your name" required>
-            <input name="email" type="email" placeholder="you@domain.com" required>
-          </div>
-          <textarea name="message" placeholder="Tell me about your project" required></textarea>
-          <div class="form-actions">
-            <button class="btn primary" type="submit">Send Message</button>
-            <button class="btn outline" type="reset">Reset</button>
-          </div>
-        </form>
+<!-- CONTACT -->
+<section id="contact" class="section contact-section reveal">
+  <div class="container">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="muted">
+      Want to collaborate or hire me? Send a message — I'll reply within 48 hours.
+    </p>
+
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/shabeerali90100@gmail.com"
+      method="POST"
+    >
+
+      <!-- 🔒 FormSubmit Configuration -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Message from Portfolio Website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="thankyou.html">
+      <input type="hidden" name="_replyto" value="%email%">
+
+      <!-- 🛑 Spam Protection (Honeypot) -->
+      <input type="text" name="_honey" style="display:none">
+
+      <!-- Form Fields -->
+      <div class="form-row">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="you@domain.com"
+          required
+        >
       </div>
-    </section>
 
-  </main>
+      <textarea
+        name="message"
+        placeholder="Tell me about your project"
+        required
+      ></textarea>
 
+      <!-- Buttons -->
+      <div class="form-actions">
+        <button class="btn primary" type="submit">
+          Send Message
+        </button>
+        <button class="btn outline" type="reset">
+          Reset
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <small>© <span id="year"></span> Shabeer Ali K A — Built with care</small>
     </div>
   </footer>
 
-  <!-- Modal (project details) -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <button id="closeModal" class="modal-close">✕</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
-
   <script src="script.js"></script>
 
+  <!-- Project click navigation -->
   <script>
-document.querySelectorAll(".project-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const id = card.dataset.id;
-    window.location.href = `project${id}.html`;
-  });
-});
-</script>
+    document.querySelectorAll(".project-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const id = card.dataset.id;
+        window.location.href = `project${id}.html`;
+      });
+    });
+  </script>
 
 </body>
 </html>

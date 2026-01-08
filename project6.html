@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Amazon Sales Analysis</title>
+<title>Bank Marketing Data Analysis</title>
+
 <style>
 body {
     margin: 0;
@@ -154,52 +155,39 @@ h1 {
 
 <div class="container">
     <a href="index.html#projects" class="glass-btn">⬅ Back</a>
-    <h1>Amazon Sales Analysis</h1>
+    <h1>Bank Marketing Data Analysis</h1>
 
     <div class="image-grid">
 
         <div class="img-box">
-            <img src="assets/pic10.png">
+            <img src="assets/Bn1.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(0)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic11.png">
+            <img src="assets/Bn2.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(1)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic12.png">
+            <img src="assets/Bn3.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(2)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic13.png">
+            <img src="assets/Bn4.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(3)">View Full Image</button>
             </div>
         </div>
 
-        <div class="img-box">
-            <img src="assets/pic14.png">
-            <div class="overlay">
-                <button class="view-btn" onclick="openLightbox(4)">View Full Image</button>
-            </div>
-        </div>
-
-        <div class="img-box">
-            <img src="assets/pic15.png">
-            <div class="overlay">
-                <button class="view-btn" onclick="openLightbox(5)">View Full Image</button>
-            </div>
-        </div>
-
+        
     </div>
 </div>
 
@@ -213,47 +201,43 @@ h1 {
 </div>
 
 <script>
-    const images = [
-        "assets/pic10.png",
-        "assets/pic11.png",
-        "assets/pic12.png",
-        "assets/pic13.png",
-        "assets/pic14.png",
-        "assets/pic15.png"
-    ];
+const images = [
+    "assets/Bn1.png",
+    "assets/Bn2.png",
+    "assets/Bn3.png",
+    "assets/Bn4.png"
+];
 
-    const descriptions = [
-        "Landing page of the Amazon Sales Dashboard containing navigation buttons and project title.",
-        "Sales Overview: Total sales, revenue patterns, and overall business performance metrics.",
-        "Category Analysis: Performance comparison of product categories and contribution to overall revenue.",
-        "Order Trends: Daily, monthly, and seasonal order movement visualized through trends.",
-        "Regional Analysis: Sales distribution across regions and identification of top-performing areas.",
-        "Fulfillment Insights: Comparison of FBA vs FBM fulfillment models and logistics performance."
-    ];
+const descriptions = [
+    "Term deposit subscription count showing the distribution between subscribed and non-subscribed customers, highlighting overall conversion imbalance.",
 
-    let currentIndex = 0;
+    "Job-wise analysis comparing term deposit subscriptions across different professions and identifying roles with higher conversion rates.",
 
-    function openLightbox(index) {
-        currentIndex = index;
-        document.getElementById("lightbox-img").src = images[index];
-        document.getElementById("caption").textContent = descriptions[index];
-        document.getElementById("lightbox").style.display = "flex";
-    }
+    "Education-level analysis showing that customers with higher education levels have a greater likelihood of subscribing to term deposits.",
 
-    function closeLightbox() {
-        document.getElementById("lightbox").style.display = "none";
-    }
+    "Age distribution of customers indicating that middle-aged clients form the primary segment of term deposit subscribers."
+];
 
-    function changeImage(direction) {
-        currentIndex += direction;
+let currentIndex = 0;
 
-        if (currentIndex < 0) currentIndex = images.length - 1;
-        if (currentIndex >= images.length) currentIndex = 0;
+function openLightbox(index) {
+    currentIndex = index;
+    document.getElementById("lightbox-img").src = images[index];
+    document.getElementById("caption").textContent = descriptions[index];
+    document.getElementById("lightbox").style.display = "flex";
+}
 
-        document.getElementById("lightbox-img").src = images[currentIndex];
-        document.getElementById("caption").textContent = descriptions[currentIndex];
-    }
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeImage(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+    document.getElementById("caption").textContent = descriptions[currentIndex];
+}
 </script>
 
 </body>
 </html>
+

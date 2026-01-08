@@ -5,160 +5,206 @@
 <title>Alzheimers Awareness Platform</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
-        color: #333;
-        text-align: center;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
 
-    .container {
-        width: 90%;
-        max-width: 1100px;
-        margin: auto;
-        padding: 20px 0;
-    }
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 0;
+}
 
-   .glass-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        text-decoration: none;
-        color: #222;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.35);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        transition: 0.3s;
-        margin-bottom: 15px;
-    }
+.glass-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #222;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
 
-    .glass-btn:hover {
-        background: rgba(255, 255, 255, 0.55);
-    }
+.glass-btn:hover {
+    background: rgba(255,255,255,0.55);
+}
 
-    h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: #3b2370;
-    }
+h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #3b2370;
+}
 
-    .view-btn {
-        display: inline-block;
-        background: #4CAF50;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 17px;
-        margin-bottom: 25px;
-    }
+/* GRID */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
 
-    .image-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
+/* IMAGE CARD */
+.img-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
 
-    .image-grid img {
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
+.img-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
-    .image-grid img:hover {
-        transform: scale(1.03);
-    }
+/* HOVER OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s ease;
+}
 
-    p {
-        margin-top: 25px;
-        font-size: 18px;
-    }
+.img-box:hover .overlay {
+    opacity: 1;
+}
 
-    /* Lightbox */
-    #lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.85);
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        flex-direction: column;
-    }
+/* VIEW FULL IMAGE BUTTON */
+.view-btn {
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #222;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
 
-    #lightbox img {
-        width: 80%;
-        max-width: 900px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px #000;
-    }
+.view-btn:hover {
+    background: white;
+}
 
-    .close-btn {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        font-size: 40px;
-        color: white;
-        cursor: pointer;
-    }
+/* LIGHTBOX */
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-    .nav-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 40px;
-        color: white;
-        cursor: pointer;
-        padding: 10px;
-        user-select: none;
-    }
+#lightbox img {
+    max-width: 92vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
 
-    .prev-btn { left: 40px; }
-    .next-btn { right: 40px; }
+#caption {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 18px;
+    max-width: 80%;
+}
 
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 45px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.prev-btn { left: 40px; }
+.next-btn { right: 40px; }
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
-
     <a href="index.html#projects" class="glass-btn">⬅ Back</a>
-
-    <h1>Alzheimers Awareness Platform</h1>
-
-    <a href="http://127.0.0.1:5501/" target="_blank" class="view-btn">
-        View My Project
-    </a>
+    <h1>AR Analysis Dashboard</h1>
 
     <div class="image-grid">
-        <img src="assets/pic4.png" onclick="openLightbox(0)">
-        <img src="assets/pic5.png" onclick="openLightbox(1)">
-        <img src="assets/pic6.png" onclick="openLightbox(2)">
-        <img src="assets/pic7.png" onclick="openLightbox(3)">
-        <img src="assets/pic8.png" onclick="openLightbox(4)">
-        <img src="assets/pic9.png" onclick="openLightbox(5)">
+
+        <div class="img-box">
+            <img src="assets/pic4.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(0)">View Full Image</button>
+            </div>
+        </div>
+
+        <div class="img-box">
+            <img src="assets/pic5.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(1)">View Full Image</button>
+            </div>
+        </div>
+
+        <div class="img-box">
+            <img src="assets/pic6.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(2)">View Full Image</button>
+            </div>
+        </div>
+
+        <div class="img-box">
+            <img src="assets/pic7.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(3)">View Full Image</button>
+            </div>
+        </div>
+
+        <div class="img-box">
+            <img src="assets/pic9.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(4)">View Full Image</button>
+            </div>
+        </div>
+
+
     </div>
-
-    <p>Website for Alzheimers education and symptom tracking.</p>
-
 </div>
 
-<!-- Lightbox -->
+<!-- LIGHTBOX -->
 <div id="lightbox">
     <span class="close-btn" onclick="closeLightbox()">×</span>
     <span class="nav-btn prev-btn" onclick="changeImage(-1)">⟨</span>
     <img id="lightbox-img">
     <span class="nav-btn next-btn" onclick="changeImage(1)">⟩</span>
+    <div id="caption"></div>
 </div>
 
 <script>

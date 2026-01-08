@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Amazon Sales Analysis</title>
+<title>ECF Analysis Dashboard</title>
+
 <style>
 body {
     margin: 0;
@@ -154,51 +155,67 @@ h1 {
 
 <div class="container">
     <a href="index.html#projects" class="glass-btn">⬅ Back</a>
-    <h1>Amazon Sales Analysis</h1>
+    <h1>ECF Analysis Dashboard</h1>
 
     <div class="image-grid">
 
         <div class="img-box">
-            <img src="assets/pic10.png">
+            <img src="assets/ecf1.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(0)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic11.png">
+            <img src="assets/ecf2.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(1)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic12.png">
+            <img src="assets/ecf3.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(2)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic13.png">
+            <img src="assets/ecf4.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(3)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic14.png">
+            <img src="assets/ecf5.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(4)">View Full Image</button>
             </div>
         </div>
 
         <div class="img-box">
-            <img src="assets/pic15.png">
+            <img src="assets/ecf6.png">
             <div class="overlay">
                 <button class="view-btn" onclick="openLightbox(5)">View Full Image</button>
             </div>
         </div>
+
+         <div class="img-box">
+            <img src="assets/ecf7.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(5)">View Full Image</button>
+            </div>
+        </div>
+
+         <div class="img-box">
+            <img src="assets/ecf8.png">
+            <div class="overlay">
+                <button class="view-btn" onclick="openLightbox(5)">View Full Image</button>
+            </div>
+        </div>
+
+
 
     </div>
 </div>
@@ -213,46 +230,54 @@ h1 {
 </div>
 
 <script>
-    const images = [
-        "assets/pic10.png",
-        "assets/pic11.png",
-        "assets/pic12.png",
-        "assets/pic13.png",
-        "assets/pic14.png",
-        "assets/pic15.png"
-    ];
+const images = [
+    "assets/ecf1.png",
+    "assets/ecf2.png",
+    "assets/ecf3.png",
+    "assets/ecf4.png",
+    "assets/ecf5.png",
+    "assets/ecf6.png",
+    "assets/ecf7.png",
+    "assets/ecf8.png",
+    
+];
 
-    const descriptions = [
-        "Landing page of the Amazon Sales Dashboard containing navigation buttons and project title.",
-        "Sales Overview: Total sales, revenue patterns, and overall business performance metrics.",
-        "Category Analysis: Performance comparison of product categories and contribution to overall revenue.",
-        "Order Trends: Daily, monthly, and seasonal order movement visualized through trends.",
-        "Regional Analysis: Sales distribution across regions and identification of top-performing areas.",
-        "Fulfillment Insights: Comparison of FBA vs FBM fulfillment models and logistics performance."
-    ];
+const descriptions = [
+  "Home page of the ECF Payment Analysis dashboard providing overall navigation and context for payment tracking and financial monitoring.",
 
-    let currentIndex = 0;
+  "Overview dashboard summarizing key ECF metrics such as total ECF count, total amount, paid amount, pending amount, and monthly payment trends.",
 
-    function openLightbox(index) {
-        currentIndex = index;
-        document.getElementById("lightbox-img").src = images[index];
-        document.getElementById("caption").textContent = descriptions[index];
-        document.getElementById("lightbox").style.display = "flex";
-    }
+  "Performance analysis highlighting delayed ECFs by location, risk category, and monthly delay trends to identify high-risk payment areas.",
 
-    function closeLightbox() {
-        document.getElementById("lightbox").style.display = "none";
-    }
+  "Senior MD view presenting a strategic-level summary including high-risk ECF exposure, overall payment health, trends, and executive decision insights.",
 
-    function changeImage(direction) {
-        currentIndex += direction;
+  "MD performance view focusing on department-wise payment performance, collection efficiency, pending exposure, and responsibility-wise outcomes.",
 
-        if (currentIndex < 0) currentIndex = images.length - 1;
-        if (currentIndex >= images.length) currentIndex = 0;
+  "Employee performance view analyzing individual-level ECF handling, payment delays, productivity, and operational efficiency metrics.",
 
-        document.getElementById("lightbox-img").src = images[currentIndex];
-        document.getElementById("caption").textContent = descriptions[currentIndex];
-    }
+  "Detailed tabular view displaying ECF-level transactional data including amounts, status, delays, locations, and drill-down analysis.",
+
+  "Glossary section explaining key ECF terms, KPIs, risk categories, metrics definitions, and calculation logic used across the dashboard."
+];
+
+let currentIndex = 0;
+
+function openLightbox(index) {
+    currentIndex = index;
+    document.getElementById("lightbox-img").src = images[index];
+    document.getElementById("caption").textContent = descriptions[index];
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeImage(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+    document.getElementById("caption").textContent = descriptions[currentIndex];
+}
 </script>
 
 </body>
